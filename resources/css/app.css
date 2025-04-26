@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.rating input:checked ~ label svg {
+fill: #F2C94C;
+}
+
+.rating label:hover ~ label svg,
+.rating label:hover svg {
+fill: #F2C94C;
+}
