@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('pages')->nullable;
             $table->integer('publication_year')->nullable();
             $table->bigInteger('downloads_count')->default(0);
+            $table->string('language');
+
             $table->timestamps();
         });
     }

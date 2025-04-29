@@ -16,7 +16,7 @@
           <!-- Main Content -->
           <div class="relative z-10 flex flex-col items-center text-center">
             <!-- Heading -->
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-right w-full">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10  w-full">
                 {{ __('messages.travel') }}
              </h1>
             
@@ -26,11 +26,14 @@
                 <!-- Search Input -->
                 <div class="flex-grow">
                   <div class="relative">
+                    <form action="{{ route('search') }}" method="GET">
                     <input 
                       type="text" 
+                      name="query"
                       placeholder="{{ __('messages.can search') }}" 
-                      class="w-full py-3 px-4 text-right focus:outline-none rounded-lg"
+                      class="w-full py-3 px-4  focus:outline-none rounded-lg"
                     >
+                  </form>
                     <!-- Search Icon -->
                     <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

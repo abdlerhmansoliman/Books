@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+ <html >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +15,11 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-Almarai antialiased text-right bg-[#F6F8FC]">
-        <div class=" container mx-auto px-32 ">
+    <body class="font-Almarai antialiased  bg-[#F6F8FC]">
+        <div class="container">
             @include('layouts.navigation')
+        </div>
+            <div class=" container mx-auto px-32 te ">
 
             <!-- Page Heading -->
             @isset($header)
@@ -29,7 +31,7 @@
             @endisset
 
             <!-- Page Content -->
-            <main class="text-right">
+            <main class="">
                 {{ $slot }}
             </main>
         </div>

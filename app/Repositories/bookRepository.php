@@ -67,6 +67,7 @@ class bookRepository implements bookInterface
     public function create()
     {
         // create logic
+        
         return Category::all();  
     }
     public function store( array $data): Book
@@ -80,8 +81,8 @@ class bookRepository implements bookInterface
             'description' => $data['description'],
             'pages' => $data['pages'],
             'publication_year' => $data['publication_year'],
+            'language' => $data['language'],
         ]);
-
         if(isset($data['pdf'])){
             $pdf = $data['pdf'];
             $pdfPath = $pdf->store('books/pdf', 'public');
@@ -172,6 +173,23 @@ class bookRepository implements bookInterface
         ->get();
     }
 
+    public function search(string $query)
+    {
+        $books = Book::where('title', 'like', "%{$query}%")
+        ->orWhere('description', 'like', "%{$query}%")
+        ->orWhereHas('user', function($q) use ($query) {
+            $q->where('name', 'like', "%{$query}%");  
+        })
+        ->get();
+
+    $users = User::where('name', 'like', "%{$query}%")
+        ->withCount('books')
+        ->withCount('ratings')
+        ->withAvg('ratings', 'rating')
+        ->get();
+
+    return ['books' => $books, 'users' => $users];
+    }
 
 
 

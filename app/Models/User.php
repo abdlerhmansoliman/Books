@@ -24,6 +24,7 @@ class User extends Authenticatable
         'gender',
         'author_desc',
         'role',
+        'bio'
     ];
 
     /**
@@ -102,5 +103,8 @@ public function getReviewsCountAttribute()
 }
 public function downloads(){
     return $this->hasMany(Download::class);
+}
+public function isAdmin(){
+    return $this->role === 'admin';
 }
 }

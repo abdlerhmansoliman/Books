@@ -3,7 +3,7 @@
   <x-page-header subpage="{{ __('messages.categories') }}" />
   
     <div class="container ">
-    <div class=" py-10">
+    <div class=" py-3">
         <!-- Hero Section -->
     
       </div>
@@ -15,7 +15,7 @@
             <!-- النصوص -->
             <div class="flex flex-col items-end">
               <!-- اسم التصنيف -->
-              <p class="text-blue-900 font-bold text-lg text-right">{{$category->name}}</p>
+              <p class="text-blue-900 font-bold text-lg ">{{$category->name}}</p>
         
               <!-- عدد الكتب -->
               <p class="text-amber-400 text-sm mt-1 flex items-center justify-end">

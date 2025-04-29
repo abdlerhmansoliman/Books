@@ -28,7 +28,12 @@
                         value="{{ old('email') }}"
                         class="w-full px-4 py-3 border border-gray-300 rounded-full  focus:outline-none focus:ring-2 focus:ring-blue-400">
                 </div>
-
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1" for="name">{{__('messages.bio')}}</label>
+                    <input type="text" id="name" name="bio" placeholder="add some thing about you"
+                        value="{{ old('bio') }}"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-full  focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
                 <!-- Password -->
                 <div>
                     <label class="block text-sm text-gray-600 mb-1" for="password">{{__('messages.password')}}</label>
@@ -77,8 +82,6 @@
                                     </ul>
                                 </div>
                             @endif                                
-                <!-- Forgot Password -->
-                <div class="text-sm text-blue-600 cursor-pointer hover:underline">{{__('messages.forget password')}}   ؟</div>
 
                 <!-- Submit Button -->
                 <button type="submit"

@@ -15,8 +15,7 @@ interface bookInterface
     public function read( $id);
     public function getBookByCategory(int $categoryId, int $excludeBookId, int $limit );
     public function getTopRated();
-
-
+    public function search(string $query);
 
 
     

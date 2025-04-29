@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
+
+class EncryptCookies extends Middleware
+{
+    /**
+     * أسماء الكوكيز اللي مش عايز تشفّرها.
+     *
+     * @var array
+     */
+    protected $except = [
+        'locale',
+    ];
+}

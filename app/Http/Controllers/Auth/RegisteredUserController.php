@@ -34,11 +34,14 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'bio' => ['required', 'string', 'max:255'],
+
         ]);
     
         $user = User::create([
             'name' => $request->name,
+            'bio' => $request->bio,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -56,7 +59,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
     
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('/', absolute: false));
     }
     
     

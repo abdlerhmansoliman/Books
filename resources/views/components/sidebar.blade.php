@@ -11,15 +11,17 @@
       </label>
       
     </div>
+    <nav class="flex flex-col p-4 space-y-4">
+
     <div class="flex justify-center">
+    @if(auth()->check())
+
         <img src="{{ $user->profile_image }}" 
      alt="صورة بروفايل" 
      class="w-24 h-24 rounded-full object-cover  shadow-md">
     </div>
     <h1 class="flex justify-center tect-[#1B3764]">{{$user->name}}</h1>
 
-    <nav class="flex flex-col p-4 space-y-4">
-      @if(auth()->check())
       <a href="{{route('profile')}}" class="flex gap-2 justify-end text-blue-900">
         {{ __('messages.profile') }}
         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +45,7 @@
             </svg>
             
     </a>
-    <a href=""class="flex gap-2 justify-end text-blue-900"> 
+    <a href="{{route('profile.edit')}}"class="flex gap-2 justify-end text-blue-900"> 
         {{ __('messages.edit') }}
         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.0779 0.500002C11.3719 0.500002 11.6349 0.683002 11.7339 0.957002L12.4399 2.914C12.6929 2.977 12.9099 3.04 13.0939 3.106C13.2949 3.178 13.5539 3.287 13.8739 3.436L15.5179 2.566C15.6521 2.49491 15.8057 2.46925 15.9557 2.49287C16.1057 2.51649 16.244 2.58811 16.3499 2.697L17.7959 4.192C17.9879 4.391 18.0419 4.682 17.9339 4.936L17.1629 6.743C17.2909 6.978 17.3929 7.179 17.4709 7.347C17.5549 7.53 17.6589 7.782 17.7829 8.107L19.5799 8.877C19.8499 8.992 20.0169 9.262 19.9989 9.551L19.8669 11.626C19.8579 11.7608 19.8095 11.89 19.7277 11.9975C19.6459 12.1051 19.5344 12.1863 19.4069 12.231L17.7049 12.836C17.6559 13.071 17.6049 13.272 17.5509 13.442C17.4638 13.7045 17.3643 13.9628 17.2529 14.216L18.1079 16.106C18.1682 16.2388 18.1845 16.3874 18.1542 16.5301C18.124 16.6728 18.0489 16.8021 17.9399 16.899L16.3139 18.351C16.2068 18.4462 16.0732 18.5064 15.9309 18.5236C15.7886 18.5408 15.6445 18.514 15.5179 18.447L13.8419 17.559C13.5797 17.6978 13.3092 17.8204 13.0319 17.926L12.2999 18.2L11.6499 20C11.6017 20.1318 11.5148 20.246 11.4006 20.3276C11.2864 20.4091 11.1502 20.4542 11.0099 20.457L9.10988 20.5C8.96584 20.5038 8.82417 20.4628 8.70437 20.3828C8.58456 20.3027 8.49251 20.1875 8.44088 20.053L7.67488 18.026C7.41353 17.9367 7.15476 17.84 6.89888 17.736C6.68959 17.6454 6.48347 17.5477 6.28088 17.443L4.38088 18.255C4.25569 18.3084 4.11767 18.3243 3.98362 18.3007C3.84958 18.2771 3.72528 18.215 3.62588 18.122L2.21988 16.803C2.1152 16.7052 2.04391 16.577 2.0161 16.4365C1.98828 16.296 2.00535 16.1503 2.06488 16.02L2.88188 14.24C2.77322 14.0292 2.67249 13.8144 2.57988 13.596C2.47178 13.3287 2.37174 13.0583 2.27988 12.785L0.489879 12.24C0.34438 12.196 0.217474 12.1052 0.128869 11.9817C0.0402643 11.8582 -0.00507958 11.7089 -0.000120812 11.557L0.0698792 9.636C0.0748618 9.51066 0.114016 9.38907 0.183107 9.28438C0.252198 9.17968 0.348597 9.09587 0.461879 9.042L2.33988 8.14C2.42688 7.821 2.50288 7.573 2.56988 7.392C2.66422 7.15025 2.76899 6.91269 2.88388 6.68L2.06988 4.96C2.0081 4.82938 1.98935 4.68254 2.0163 4.54059C2.04325 4.39864 2.11453 4.26889 2.21988 4.17L3.62388 2.844C3.7223 2.75117 3.84545 2.68876 3.97851 2.66428C4.11156 2.6398 4.24886 2.65429 4.37388 2.706L6.27188 3.49C6.48188 3.35 6.67188 3.237 6.84388 3.146C7.04888 3.037 7.32288 2.923 7.66788 2.8L8.32788 0.959002C8.37667 0.82427 8.46586 0.707883 8.58327 0.625733C8.70068 0.543583 8.84058 0.499674 8.98388 0.500002H11.0779ZM10.0239 7.519C8.35688 7.519 7.00588 8.854 7.00588 10.502C7.00588 12.15 8.35688 13.486 10.0239 13.486C11.6899 13.486 13.0409 12.15 13.0409 10.502C13.0409 8.854 11.6909 7.519 10.0239 7.519Z" fill="#1B3764"/>
@@ -63,5 +65,35 @@
     </form>
     
     @endif
+    <a href="{{route('profile',['type'=>'reviews'])}}"class="flex gap-2 justify-end text-blue-900"> 
+      {{ __('messages.Privacy Policy') }}          
+  </a>
+  <div class="relative inline-block text-right group" dir="rtl">
+    <div class="relative inline-block">
+        <!-- Input hidden for controlling the dropdown -->
+        <input type="checkbox" id="language-toggle" class="hidden peer">
+    
+        <label for="language-toggle" class="inline-flex justify-between items-center rounded-md shadow-sm px-4 py-2 bg-[#1B3764] hover:bg-blue-500 w-full mt-5  text-sm font-medium text-white cursor-pointer">
+            <span>@lang('messages.language')</span>
+            <svg class="mr-2 h-5 w-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </label>
+    
+        <!-- Dropdown menu -->
+        <div class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 hidden peer-checked:block transition-all duration-300 ease-in-out opacity-0 peer-checked:opacity-100">
+            <div class="py-1">
+                <a href="{{ route('language.switch', 'ar') }}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">
+                    @lang('messages.arab')
+                </a>
+                <a href="{{ route('language.switch', 'en') }}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">
+                    @lang('messages.eng')
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     </nav>
   </div>

@@ -89,5 +89,8 @@ class BookController extends Controller
           return view ('book', compact ('authorRating'));
 
         }
+        public function policy(){
+            return view('Policies');
+        }
 
     }

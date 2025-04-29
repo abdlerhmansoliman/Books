@@ -1,3 +1,5 @@
+@guest
+
 <div class="max-w-4xl mx-auto mt-14 p-10 bg-[#1B3764] rounded-lg relative overflow-hidden shadow-2xl">
 
     <div class="relative z-10 flex flex-col items-center text-center">
@@ -5,6 +7,7 @@
         <!-- Heading -->
         
         <!-- Search Box -->
+
         <div class="w-full rounded-lg shadow-sm p-1">
           <div class="flex items-center">
             <!-- Search Input -->
@@ -18,7 +21,8 @@
                 <!-- Search Icon -->
                 <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
                   <div class="ml-2">
-                    <a href="/login" class="px-1 py-3 bg-amber-400 hover:bg-amber-500 transition text-gray-800 font-medium ">
+
+                    <a href="/login" class="px-6 py-2 bg-amber-400 hover:bg-amber-500 transition text-gray-800 font-medium">
                       {{ __('messages.login') }}
                     </a>
                   </div>
@@ -37,10 +41,12 @@
            </h1>
         </div>
       </div>
+
     </div>
   
   </div>
   
+  @endguest
   
   <footer class="text-whit py-8">
     <div class="container mx-auto px-6">

@@ -76,8 +76,13 @@ return [
     'my downloads'=>'تحميلاتي',
     'reviews'=>'مراجعات',
     'books'=>'كتب',
-    'download'=>'تحميلات'
+    'download'=>'تحميلات',
+    'save changes'=>'حفظ التغيرات',
+    'bio'=>'نبذة تعريفية',
+    'language'=>'اختار لغتك',
+    'arab'=>'العربية',
+    'eng'=>'الانجليزية',
+    'blanguage'=> 'لغة الكتاب',
 
-    
 
 ];

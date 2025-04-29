@@ -3,7 +3,8 @@
   <div class="container ">
     <div class=" py-10">
         <!-- Hero Section -->
-    
+        {{ session('locale') }}
+
       </div>
  <div class="grid grid-cols-3 gap-4">
   @foreach ($users as $user)
@@ -35,8 +36,9 @@
         
         <!-- صورة الكاتب -->
         <div class="flex-shrink-0">
-          <img src="https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?w=300&h=400&auto=compress&cs=tinysrgb" class="w-20 h-20 rounded-full object-cover border-4 border-white" />
-        </div>
+          <img src="{{ $user->profile_image }}" 
+          alt="صورة بروفايل" 
+          class="w-24 h-24 rounded-full object-cover shadow-md">        </div>
       </div>
     </a>
   @endforeach

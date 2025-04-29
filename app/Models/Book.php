@@ -16,6 +16,7 @@ class Book extends Model
         'category_id',
         'publication_year',
         'pages',
+        'language',
     ];
     public function uploads()
     {

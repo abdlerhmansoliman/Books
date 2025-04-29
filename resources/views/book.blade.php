@@ -4,33 +4,33 @@
             <!-- Book Information -->
             <div class="p-6 flex-grow">
                 <!-- Author Name -->
-                <h3 class="text-right text-yellow-500 text-lg font-semibold mb-2">{{$book->auth_name}}</h3>
+                <h3 class=" text-yellow-500 text-lg font-semibold mb-2">{{$book->auth_name}}</h3>
                 
                 <!-- Book Title -->
-                <h2 class="text-right text-blue-900 text-2xl font-bold mb-1">{{$book->title}} </h2>
+                <h2 class=" text-blue-900 text-2xl font-bold mb-1">{{$book->title}} </h2>
                 
                 <!-- Category -->
-                <p class="text-right text-[#EBBB3F] text-sm mb-6">{{$book->category->name}} </p>
+                <p class=" text-[#EBBB3F] text-sm mb-6">{{$book->category->name}} </p>
                 
                 <!-- Book Details - Grid Layout -->
                 <div class="grid grid-cols-2 gap-y-3 border-b border-gray-200 pb-6 mb-4">
-                    <div class="text-gray-800 font-medium text-right">{{__('messages.language')}}:</div>
-                    <div class="text-gray-600 text-right"> اللغة العربية</div>
+                    <div class="text-gray-800 font-medium ">{{__('messages.language')}}:</div>
+                    <div class="text-gray-600 "> {{$book->language}} </div>
                     
-                    <div class="text-gray-800 font-medium text-right">{{__('messages.publish date')}} :</div>
-                    <div class="text-gray-600 text-right">  {{$book->publication_year}}: </div>
+                    <div class="text-gray-800 font-medium ">{{__('messages.publish date')}} :</div>
+                    <div class="text-gray-600 ">  {{$book->publication_year}}: </div>
                     
-                    <div class="text-gray-800 font-medium text-right">{{__('messages.pages')}}:</div>
-                    <div class="text-gray-600 text-right"> {{$book->pages}}</div>
+                    <div class="text-gray-800 font-medium ">{{__('messages.pages')}}:</div>
+                    <div class="text-gray-600 "> {{$book->pages}}</div>
                     
-                    <div class="text-gray-800 font-medium text-right">{{__('messages.size')}} :</div>
-                    <div class="text-gray-600 text-right">  {{$book->pdf_size}}</div>
+                    <div class="text-gray-800 font-medium ">{{__('messages.size')}} :</div>
+                    <div class="text-gray-600 ">  {{$book->pdf_size}}</div>
                     
-                    <div class="text-gray-800 font-medium text-right"> {{__('messages.file type')}}:</div>
-                    <div class="text-gray-600 text-right"> {{ $fileExtension ?? 'N/A' }}</div>
+                    <div class="text-gray-800 font-medium "> {{__('messages.file type')}}:</div>
+                    <div class="text-gray-600 "> {{ $fileExtension ?? 'N/A' }}</div>
                     
-                    <div class="text-gray-800 font-medium text-right">{{__('messages.downloads')}}:</div>
-                    <div class="text-gray-600 text-right"> {{$downloadCount}}</div>
+                    <div class="text-gray-800 font-medium ">{{__('messages.downloads')}}:</div>
+                    <div class="text-gray-600 "> {{$downloadCount}}</div>
                 </div>
                 
                 <!-- Ratings and Reviews -->
@@ -95,7 +95,7 @@
                     <div>
                         <a href="{{ route('books.read', $book->id) }}" target="_blank">
                             <button class="flex items-center justify-center gap-2 px-4 py-2 border border-blue-900 rounded-md bg-white text-blue-900 hover:bg-blue-50 transition">
-                                <span class="text-right text-sm font-medium">
+                                <span class=" text-sm font-medium">
                                     {{ __('messages.read book') }}
                                 </span>
                                 <!-- Book Icon SVG -->
@@ -117,7 +117,7 @@
                       <div>
                         <form action="{{route('books.download',$book->id)}}" method="GET">
                         <button class="flex items-center justify-center gap-2 px-4 py-2 border border-blue-900 rounded-md bg-white text-blue-900 hover:bg-blue-50 transition">
-                          <span class="text-right text-sm font-medium">
+                          <span class=" text-sm font-medium">
                         {{ __('messages.download book') }}
                 
                           </span>
@@ -151,7 +151,7 @@
                                         @csrf
                                         <div class="rating flex flex-col bg-white p-6 rounded-lg w-96 justify-center gap-3  mb-2">
                                             <!-- نجوم التقييم -->
-                                            <h1 class="text-black text-right text-lg ">{{__('messages.add review')}}</h1>
+                                            <h1 class="text-black  text-lg ">{{__('messages.add review')}}</h1>
                                             <div class="flex  justify-end gap-1">
                                                 @for ($i = 5; $i >= 1; $i--)
                                                     <input type="radio" id="star-{{ $book->id }}-{{ $i }}" name="rating" value="{{ $i }}" class="hidden peer" />
@@ -192,7 +192,7 @@
                         <form action="{{route('bookmark.add',$book->id)}}" method="POST">
                             @csrf
                         <button class="flex items-center justify-center gap-2 px-4 py-2 border border-blue-900 rounded-md bg-white text-blue-900 hover:bg-blue-50 transition">
-                          <span class="text-right text-sm font-medium">
+                          <span class=" text-sm font-medium">
                         {{ __('messages.save') }}
                 
                           </span>
@@ -222,7 +222,7 @@
             </div>
             
             <!-- Book Excerpt Heading -->
-            <h2 class="text-right text-xl text-[#1B3764] font-bold border-b border-gray-200 pb-2 mb-4"> {{__('messages.about the book')}} </h2>
+            <h2 class=" text-xl text-[#1B3764] font-bold border-b border-gray-200 pb-2 mb-4"> {{__('messages.about the book')}} </h2>
             
             <!-- Book Excerpt Content -->
             <p class="text-[#646E79] text-m leading-relaxed mb-4 ">
@@ -252,7 +252,7 @@
         
         <!-- Reviews Section -->
         <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <h2 class="text-right text-lg font-bold border-b border-gray-200 pb-2 mb-6">التقييمات</h2>
+            <h2 class=" text-lg font-bold border-b border-gray-200 pb-2 mb-6">التقييمات</h2>
           
             @foreach ($book->reviews as $review)
               <div class="border-b border-gray-100 pb-6 mb-6">
@@ -262,11 +262,10 @@
                     <img src="{{ $review->user->profile_image }}" class="w-12 h-12 rounded-full object-cover border" />
                   </div>
           
-                  <!-- الاسم + الريفيو + النجوم -->
-                  <div class="flex-grow text-right pr-3">
+                  <div class="flex-grow  pr-3">
                     <!-- الاسم والتاريخ -->
                     <div class="flex justify-between items-center mb-1">
-                      <div class="text-xs text-gray-500">{{ $review->created_at->diffForHumans() }}</div>
+                      <div class="text-xs text-gray-500">{{ $review->created_at->format('j-n-Y') }}</div>
                       <h3 class="font-semibold text-blue-900">{{ $review->user->name }}</h3>
 
                     </div>
@@ -293,25 +292,12 @@
 
         <!-- Related Books Section -->
         <div class="bg-white rounded-lg shadow-sm p-6 mb-8 ">
-            <h1 class="text-2xl font-bold text-right mb-4">{{ __('messages.ralated') }}</h1>
+            <h1 class="text-2xl font-bold  mb-4">{{ __('messages.ralated') }}</h1>
         
-            <div class="grid grid-cols-5 gap-4 text-right">
+            <div class="grid grid-cols-5 gap-4 ">
                 @foreach ($relatedBooks as $relatedBook)
-                    <div class="p-4 bg-white rounded-lg  text-center flex flex-col items-center">
-                        <a href="{{ route('books.show', $relatedBook->id) }}" class="block w-full">
-                            <img 
-                                src="{{ $user->profile_image }}" 
-                                alt="Book Cover" 
-                                class="w-full h-64 object-cover mx-auto mb-3 rounded-md" 
-                            />
-        
-                            <h2 class="text-md text-[#646E79] mt-2">{{ $relatedBook->auth_name }}</h2>
-                            <p class="text-lg font-semibold mt-1">{{ $relatedBook->title }}</p>
-                        </a>
-        
-                        <x-star-rating :rating="$relatedBook->ratings_avg_rating ?? 0"  />
-
-                    </div>
+          <x-book-card :book="$relatedBook" />
+                
                 @endforeach
             </div>
         </div>
@@ -321,19 +307,12 @@
 
             <!-- قسم الكتب من نفس المؤلف -->
             <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
-                <h1 class="text-xl text-right">{{__('messages.same author')}}</h1>
-                <div class="grid grid-cols-5 gap-4 text-right">
+                <h1 class="text-xl ">{{__('messages.same author')}}</h1>
+                <div class="grid grid-cols-5 gap-4 ">
+                    
                     @foreach ($booksByAuthor as $bookByAuthor)
-                    <div class="p-4 rounded">
-                        <a href="{{ route('books.show', $bookByAuthor->id) }}">
-                            <img src="{{ asset('storage/' . ($bookByAuthor->coverImage()->path ?? 'default.jpg')) }}" alt="Book Cover" class="w-full h-64 object-cover mx-auto mb-3 rounded-md" />
-                            <h1 class="text-lg text-[#646E79]">{{ $bookByAuthor->auth_name }}</h1>
-                            <p class="text-xl font-semibold">{{ $bookByAuthor->title }}</p>
-                        </a>
-                        <!-- Rating Section -->
-                        <x-star-rating :rating="$relatedBook->ratings_avg_rating ?? 0"  />
+                    <x-book-card :book="$bookByAuthor" />
 
-                      </div>  
                     @endforeach
                 </div>
             </div>

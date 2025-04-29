@@ -23,11 +23,13 @@ class StoreRequest extends FormRequest
     {
         return [
             'title'=>'required|string|max:255',
+            'language'=>'required|string|max:255',
             'auth_name' => 'required|string|max:255',
             'category_id'=>'required|exists:categories,id',
             'description'=>'required|string',
             'pages'=>'integer|min:1',
             'publication_year' => 'required|integer|digits:4|max:' . date('Y'),
+
             'image_cover'=>'required|file|mimes:jpg,png,jpeg|max:10240',
             'pdf' => 'required|file|mimes:pdf|max:10240',       
          ];

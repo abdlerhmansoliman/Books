@@ -2,6 +2,8 @@
 
 namespace App\Interfaces;
 
+use App\Models\User;
+use Illuminate\Http\UploadedFile;
 
 interface UserInterface
 {
@@ -16,4 +18,5 @@ interface UserInterface
     public function getBooks($userId);
     public function getReviews($userId);
     public function getDownloads($userId);
+    public function updateUserProfile(User $user, array $data, ?UploadedFile $image = null);
 }

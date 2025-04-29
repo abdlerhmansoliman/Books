@@ -36,26 +36,28 @@
       @endguest
 
       </div>
-      
-      <!-- Search Bar (Center) -->
+     <!-- Search Bar (Center) -->
       <div class="flex-1 max-w-xl mx-6">
-        <form action="/" class="relative w-full">
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder=" {{ __('messages.can search') }}"
-            class="w-full pl-12 pr-4 py-2 bg-gray-100 border border-gray-200 rounded-full  focus:outline-none"
-          >
-          <!-- Search icon -->
-          <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103 10.5a7.5 7.5 0 0013.65 6.15z" />
-            </svg>
-          </div>
-        </form>
+<form action="{{ route('search') }}" method="GET" class="relative w-full flex">
+  <input
+    type="text"
+    id="search"
+    name="query"
+    placeholder="{{ __('messages.can search') }}"
+    class="w-full pl-12 pr-4 py-2 bg-gray-100 border border-gray-200 rounded-full focus:outline-none"
+  >
+  <!-- Search icon -->
+  <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103 10.5a7.5 7.5 0 0013.65 6.15z" />
+    </svg>
+  </div>
+
+  <button type="submit" class="ml-2 px-4 py-2 hidden bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">بحث</button>
+</form>
+
       </div>
       
       <!-- Brand/Logo (Right) -->
@@ -66,14 +68,13 @@
   </div>
   
   <!-- Bottom Navigation -->
-  <div class="bg-gray-50 border-t border-gray-200 py-3">
+  <div class="bg-gray-50 border-t border-gray-200 py-3 shadow-lg">
     <div class="container mx-auto px-8 flex justify-between items-center">
       <!-- Subscription Button (Left) -->
       <div>
         <a href="/add" class="flex items-center justify-center gap-2 px-4 py-2 border border-blue-900 rounded-md bg-white text-blue-900 hover:bg-blue-50 transition">
-          <span class=" text-sm font-medium">
-        {{ __('messages.publish') }}
-
+          <span class="text-sm font-medium">
+            {{ __('messages.publish') }}
           </span>
           <!-- Book Icon SVG -->
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,44 +91,44 @@
       </div>
       
       <!-- Main Navigation Links (Center) -->
-      <div class="flex-1 pb-6  flex justify-center shadow-lg ">
-        <ul class="flex space-x-20 gap-4 text-l">
+      <div class="flex-1 flex justify-center">
+        <ul class="flex space-x-6 text-lg">
           <li class="flex flex-col items-center relative">
-              <a href="/" class="text-black-500"> {{ __('messages.home') }} </a>
-              @if(request()->is('/'))
-                  <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
-              @endif
+            <a href="/" class="text-black-500"> {{ __('messages.home') }} </a>
+            @if(request()->is('/'))
+              <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
+            @endif
           </li>
       
           <li class="flex flex-col items-center relative">
-              <a href="/categories" >
-                  {{ __('messages.categories') }}
-              </a>
-              @if(request()->is('categories'))
-                  <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
-              @endif
+            <a href="/categories">
+              {{ __('messages.categories') }}
+            </a>
+            @if(request()->is('categories'))
+              <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
+            @endif
           </li>
-
+  
           <li class="flex flex-col items-center relative">
-              <a href="{{route('books.top-rated')}}" class="text-black">
-                  {{ __('messages.best books') }}
-              </a>
-              @if(request()->is('top-rated-books'))
-                  <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
-              @endif
+            <a href="{{route('books.top-rated')}}" class="text-black">
+              {{ __('messages.best books') }}
+            </a>
+            @if(request()->is('top-rated-books'))
+              <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
+            @endif
           </li>
       
           <li class="flex flex-col items-center relative">
-              <a href="/authors" class="text-black-500">
-                  {{ __('messages.authors') }}
-              </a>
-              @if(request()->is('authors'))
-                  <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
-              @endif
+            <a href="/authors" class="text-black-500">
+              {{ __('messages.authors') }}
+            </a>
+            @if(request()->is('authors'))
+              <div class="absolute top-full mt-2 w-2 h-2 bg-blue-800 rounded-full"></div>
+            @endif
           </li>
-      </ul>
-      
+        </ul>
       </div>
     </div>
   </div>
+  
 </nav>

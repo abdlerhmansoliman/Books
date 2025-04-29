@@ -8,6 +8,7 @@ use App\Models\Download;
 use App\Models\Rating;
 use App\Models\Review;
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
 
 class UserRepository implements UserInterface
 {
@@ -58,6 +59,30 @@ public function getReviews($userId)
 public function getDownloads($userId)
 {
     return  Download::with('book')->where('user_id', $userId)->get();
+}
+public function updateUserProfile(User $user, array $data, ?UploadedFile $image = null) {
+    $user->fill($data);
+    if ($user->isDirty('email')) {
+        $user->email_verified_at = null;
+    }
+
+    $user->save(); 
+
+    if ($image && $image->isValid()) {
+    
+        $path = $image->store('profile_images', 'public');
+
+        
+        $user->uploads()->updateOrCreate(
+            [
+                'path' => $path,
+                'type' => 'profile_image', 
+                'size' => $image->getSize(),
+
+            ]
+        );
+
+    }
 }
 
 }

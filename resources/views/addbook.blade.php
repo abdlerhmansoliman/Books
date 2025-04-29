@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label class="block text-sm font-medium text-blue-900 mb-1">{{ __('messages.pages') }} *</label>
-                <input type="text" name="pages" class="w-full border border-gray-300 rounded py-2 px-3 text-gray-500 bg-gray-50" placeholder="{{ __('messages.pages') }}" />
+                <input type="number" name="pages" class="w-full border border-gray-300 rounded py-2 px-3 text-gray-500 bg-gray-50" placeholder="{{ __('messages.pages') }}" />
             </div>
 
               <!-- الوصف -->
@@ -43,8 +43,8 @@
               </div>
 
               <div class=" form-group">
-                <label class="block text-sm font-medium text-blue-900 mb-1">{{ __('messages.publish date') }} *</label>
-                <input type="number" name="publication_year" class="w-full border border-gray-300 rounded py-2 px-3 text-gray-500 bg-gray-50" placeholder="{{ __('messages.publication_year') }}" />
+                <label class="block text-sm font-medium text-blue-900 mb-1">{{__('messages.publish date')}} *</label>
+                <input type="number" name="publication_year" class="w-full border border-gray-300 rounded py-2 px-3 text-gray-500 bg-gray-50" placeholder="{{__('messages.publish date')}} " />
             </div>
               <!-- رفع الملف -->
               <div class="form-group">
@@ -72,6 +72,10 @@
                       </label>
                   </div>
               </div>
+              <div class=" form-group">
+                <label class="block text-sm font-medium text-blue-900 mb-1">{{__('messages.blanguage')}} *</label>
+                <input type="text" name="language" class="w-full border border-gray-300 rounded py-2 px-3 text-gray-500 bg-gray-50" placeholder="{{__('messages.blanguage')}} " />
+            </div>
           </div> <!-- نهاية Grid -->
           @if ($errors->any())
           <div class="alert alert-danger">
@@ -83,7 +87,7 @@
           </div>
       @endif
           <!-- شروط الخدمة وزر الإرسال -->
-          <div class="flex justify-end mt-12">
+          <div class="flex justify-center mt-12">
             <div class="bg-gray-50 p-6 rounded-md w-full max-w-md text-center">
                 <h3 class="text-sm font-medium text-blue-900 mb-4">{{ __('messages.terms of Service') }}:</h3>
                 <ul class="text-sm text-gray-700 space-y-3 ">
