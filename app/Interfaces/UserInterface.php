@@ -19,4 +19,5 @@ interface UserInterface
     public function getReviews($userId);
     public function getDownloads($userId);
     public function updateUserProfile(User $user, array $data, ?UploadedFile $image = null);
+    public function count();
 }

@@ -22,9 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'gender',
-        'author_desc',
-        'role',
-        'bio'
+        'bio',
+        'status',
     ];
 
     /**
@@ -106,5 +105,11 @@ public function downloads(){
 }
 public function isAdmin(){
     return $this->role === 'admin';
+}
+public function roles(){
+    return $this->belongsToMany(Role::class);
+}
+public function statuse(){
+    return $this->belongsToMany(Status::class);
 }
 }

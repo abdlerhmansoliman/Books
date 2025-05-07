@@ -29,7 +29,8 @@ class bookRepository implements bookInterface
         // index logic
         
         return Book::withCount(['ratings'])
-        ->withAvg('ratings', 'rating') // نحسب متوسط التقييم
+        ->withAvg('ratings', 'rating')
+        ->where('status','approved')
         ->get();
         
     }
@@ -38,8 +39,8 @@ class bookRepository implements bookInterface
         // show logic
         try{
         $book= Book::with(['uploads', 'category','reviews.user.uploads',])
-        ->withCount(['reviews', 'ratings']) // نحسب عدد التقييمات
-        ->withAvg('ratings', 'rating')      // نحسب متوسط التقييم
+        ->withCount(['reviews', 'ratings']) 
+        ->withAvg('ratings', 'rating')      
         ->findOrFail($id); 
         }
         catch(ModelNotFoundException $e){
@@ -82,6 +83,7 @@ class bookRepository implements bookInterface
             'pages' => $data['pages'],
             'publication_year' => $data['publication_year'],
             'language' => $data['language'],
+            'status'=>'pending',
         ]);
         if(isset($data['pdf'])){
             $pdf = $data['pdf'];
@@ -191,7 +193,10 @@ class bookRepository implements bookInterface
     return ['books' => $books, 'users' => $users];
     }
 
-
+    public function count()
+    {
+        return Book::count();
+    }
 
 }
 

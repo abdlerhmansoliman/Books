@@ -17,6 +17,8 @@ class UserRepository implements UserInterface
         return User::withCount('books')
         ->withCount('ratings')
         ->withAvg('ratings', 'rating')
+        ->with('statuse')
+        ->with('roles')
         ->get();
     }
     public function getUserBooksWithRating($userId){
@@ -83,6 +85,10 @@ public function updateUserProfile(User $user, array $data, ?UploadedFile $image 
         );
 
     }
+}
+public function count(): int
+{
+    return User::count();
 }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\UserEditRequest;
 use App\Interfaces\UserInterface;
 use App\Models\Book;
 use App\Repositories\UserRepository;
@@ -57,7 +58,7 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(UserEditRequest $request): RedirectResponse
     {
         $user = $request->user();
         $data = $request->validated();

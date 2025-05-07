@@ -38,7 +38,8 @@
         <div class="flex-shrink-0">
           <img src="{{ $user->profile_image }}" 
           alt="صورة بروفايل" 
-          class="w-24 h-24 rounded-full object-cover shadow-md">        </div>
+          class="w-24 h-24 rounded-full object-cover shadow-md"> 
+         </div>
       </div>
     </a>
   @endforeach

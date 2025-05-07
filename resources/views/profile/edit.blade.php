@@ -21,6 +21,7 @@
                         class="w-24 h-24 rounded-full object-cover shadow-md">
                 
                     <!-- Edit Icon under the image to the right -->
+                    
                     <div class="w-24 flex justify-end mt-0 -mb-3 pr-2 ">
                         <label for="profileImageInput" class="bg-white p-1 rounded-full shadow-md cursor-pointer">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,16 +31,20 @@
                     </div>
                 </div>
                     <!-- Name -->
+                    <label class="block text-sm text-gray-600 mb-1" for="password">{{__('messages.name')}}</label>
                     <input type="text" id="name" name="name" placeholder="سارة محمد فتح الله عبدالمقصود"
                         value="{{ old('name', $user->name) }}"
                         class="w-full px-4 py-3 border border-gray-300 rounded-full  focus:outline-none focus:ring-2 focus:ring-blue-400">
 
                     <!-- Email -->
+                    <label class="block text-sm text-gray-600 mb-1" for="password">{{__('messages.email')}}</label>
+
                     <input type="email" id="email" name="email" placeholder="sarahmohamed@gmail.com"
                         value="{{ old('email', $user->email) }}"
                         class="w-full px-4 py-3 border border-gray-300 rounded-full  focus:outline-none focus:ring-2 focus:ring-blue-400">
-
-                        <input type="text" id="bio" name="name" 
+                       
+                        <label class="block text-sm text-gray-600 mb-1" for="password">{{__('messages.bio')}}</label>
+                        <input type="text" id="bio" name="bio" 
                         value="{{ old('bio', $user->bio) }}"
                         class="w-full px-4 py-3 border border-gray-300 rounded-full  focus:outline-none focus:ring-2 focus:ring-blue-400">
 

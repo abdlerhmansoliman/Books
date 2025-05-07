@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
+use App\Models\Status;
 use App\Models\Upload;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -45,7 +47,9 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-    
+        $user->roles()->attach(Role::where('role', 'user')->value('id'));
+        $user->statuse()->attach(Status::where('name','active')->value('id'));
+        
         if ($request->hasFile('profile_image')) {
             $imagePath = $request->file('profile_image')->store('avatars', 'public');
             
@@ -59,7 +63,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
     
-        return redirect(route('/', absolute: false));
+        return redirect()->route('home');
     }
     
     

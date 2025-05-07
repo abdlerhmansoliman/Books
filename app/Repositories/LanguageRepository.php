@@ -34,10 +34,22 @@ class LanguageRepository implements LanguageInterface
     }
     public function saveLocaleToCookie($locale)
     {
-     Cookie::queue(
-        Cookie::make($this->cookieName, $locale, $this->cookieExp, null, null, false, false)
-    );
+        $cookie = cookie(
+            $this->cookieName,    
+            $locale,              
+            $this->cookieExp,     
+            '/',                  
+            null,                 
+            false,                
+            true,                 
+            false,                
+            'lax'                 
+        );
+        
+        Cookie::queue($cookie);
+        \Log::info("Cookie '{$this->cookieName}' set with value: {$locale}");
     }
+    
     public function getLocaleFormCookie()
     {
         return Cookie::get($this->cookieName);

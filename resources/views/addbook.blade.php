@@ -25,7 +25,7 @@
                     {{ __('messages.book category') }} *
                 </label>
                 <select name="category_id" required class="w-full border border-gray-300 rounded py-2 px-3 text-gray-500 bg-gray-50">
-                    <option value="" disabled selected>-- اختر تصنيف --</option>
+                    <option value="" disabled selected>{{__('messages.chosecat')}} </option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach

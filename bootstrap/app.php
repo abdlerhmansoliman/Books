@@ -14,14 +14,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append([
-            SetLocale::class,
-        ]);
+
         $middleware->alias([
             'admin' => AdminMiddleware::class,
             'encrypt.cookies' => EncryptCookies::class,
 
-            // 'setLocale' => SetLocale::class,
+
+            'setLocale' => SetLocale::class,
         ]);
         $middleware->group('web', [
             'encrypt.cookies', 
@@ -31,6 +30,7 @@ return Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             SetLocale::class, 
         ]);
+ 
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

@@ -17,6 +17,7 @@ class Book extends Model
         'publication_year',
         'pages',
         'language',
+        'status',
     ];
     public function uploads()
     {
@@ -61,4 +62,8 @@ class Book extends Model
     public function downloads(){
         return $this->hasMany(Download::class);
     } 
+    public function getReviewsCountAttribute()
+    {
+        return $this->reviews()->count();
+    }
 }

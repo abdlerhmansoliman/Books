@@ -24,17 +24,20 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         $locale = Cookie::get('locale');
-        
+        Log::info('Decrypted cookie value from request: ' . ($locale ?? 'null'));
+
         $availableLocales = Config::get('app.available_locales', ['ar', 'en']);
         
         if ($locale && in_array($locale, $availableLocales)) {
-            // تعيين اللغة مباشرة
+            
             App::setLocale($locale);
             \Log::info('Language set to: ' . $locale . ' from cookie');
         } else {
-            \Log::info('Using default language: ' . Config::get('app.locale') . '. Cookie value: ' . ($locale ?? 'null'));
+            // Use default locale if cookie is not set or invalid
+            $defaultLocale = Config::get('app.locale');
+            App::setLocale($defaultLocale);
+            Log::info('Using default language: ' . $defaultLocale . '. Cookie value: ' . ($locale ?? 'null'));
         }
-        \Log::info('SetLocale middleware ran.');
 
         return $next($request);
     }

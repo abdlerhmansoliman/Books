@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('uploads', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -20,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('uploads', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('statuses');
     }
 };

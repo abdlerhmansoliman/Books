@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('bio');
             $table->enum('gender', ['male', 'female']);
-            $table->string('author_desc')->nullable();
-            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

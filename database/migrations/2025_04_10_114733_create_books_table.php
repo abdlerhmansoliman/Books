@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('publication_year')->nullable();
             $table->bigInteger('downloads_count')->default(0);
             $table->string('language');
-
+            $table->enum('status',['pending','approved','rejected'])->default('pending');
             $table->timestamps();
         });
     }
