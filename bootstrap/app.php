@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\EnsureUserMiddleware;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -17,13 +18,12 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->alias([
             'admin' => AdminMiddleware::class,
-            'encrypt.cookies' => EncryptCookies::class,
+            'ensureUser' => EnsureUserMiddleware::class,
 
 
             'setLocale' => SetLocale::class,
         ]);
         $middleware->group('web', [
-            'encrypt.cookies', 
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,

@@ -90,8 +90,8 @@ class DashboardRepository implements DashboardInterface
                 $book->uploads()->create($uploadData);
             }
         }
-            dd($uploadData);
 
+        
             if(isset($data['pdf'])){
                 $path=$data['pdf']->store('books/pdf','public');
                 $uploadData = [
@@ -119,6 +119,7 @@ class DashboardRepository implements DashboardInterface
         $book->save();
         return $book;
     }
+
 
 }
 

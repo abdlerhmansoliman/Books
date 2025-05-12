@@ -6,7 +6,7 @@
             <!-- Session Status -->
             <x-auth-session-status class="mb-4" :status="session('status')"  />
 
-            <form method="POST" action="{{  route('dashboard.update', $user)  }}" class="space-y-4" enctype="multipart/form-data">
+            <form method="POST" action="{{  route('dashboard.user.update', $user)  }}" class="space-y-4" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="flex flex-col items-center mb-6 relative">

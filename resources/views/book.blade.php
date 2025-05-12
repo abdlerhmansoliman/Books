@@ -36,25 +36,7 @@
                 <!-- Ratings and Reviews -->
                 <div class="flex items-center justify-between mb-6">
                     <!-- Star Rating -->
-                    <div class="flex items-center">
-                        <div class="flex items-center space-x-1 space-x-reverse">
-                            <span class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="text-yellow-400">
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="text-gray-300">
-                                <i class="fas fa-star"></i>
-                            </span>
-                        </div>
-                    </div>
+
                     
                     <!-- Reviews and Ratings Count -->
                     <div class="flex items-center gap-4 space-x-4 space-x-reverse">

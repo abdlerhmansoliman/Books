@@ -47,24 +47,21 @@ class DashboardController extends Controller
   }
   public function edit( $type , $id ){
     if($type=='user'){
-      $user = User::findOrFail($id);
+      $user = $this->userRepo->getUserBooksWithRating($id);
       $roles=$this->dashrepo->getRoles();
     $statueses=$this->dashrepo->getStatues();
       return view('admin.edit',compact('user','roles','statueses'));
     }
     elseif($type=='book'){
       $book = Book::findOrFail($id);
-      $categories=$this->dashrepo->getCategory();
+      $categories=$this->catRepo->index();
       return view ('admin.bookedit',compact('book','categories'));
     }
   }
 
-  public function update(UserEditRequest $request,User $user)
+  public function update(UserEditRequest $request, User $user)
   { 
-
-      $this->dashrepo->update($user, );
-      $user->refresh(); 
-
+    $this->dashrepo->update($user, $request->validated());
 
       return redirect()->back();
   }

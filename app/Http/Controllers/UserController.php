@@ -25,7 +25,8 @@ class UserController extends Controller
     public function show($userId)
     {
         $user = $this->userRepository->getUserBooksWithRating($userId);
-    
+        dd($user->roles->pluck('role'));
+
         $authorRating = $this->userRepository->getAuthorAverageRating($userId);
         $authorRatingCount = $this->userRepository->getAuthorRatingCount($userId);
         $userReviewsCount = $this->userRepository->getUserReviewsCount($userId);
@@ -38,7 +39,7 @@ class UserController extends Controller
     
         $this->rateUserRepository->rateAuthor($authorId, $data['rating']);
     
-        return back()->with('success', 'تم تقييم الكاتب بنجاح');
+        return back();
     }
     
 }

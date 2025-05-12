@@ -103,13 +103,14 @@ public function getReviewsCountAttribute()
 public function downloads(){
     return $this->hasMany(Download::class);
 }
-public function isAdmin(){
-    return $this->role === 'admin';
-}
 public function roles(){
     return $this->belongsToMany(Role::class);
 }
 public function statuse(){
     return $this->belongsToMany(Status::class);
+}
+public function currentStatus()
+{
+    return $this->statuse()->latest()->first(); // أو حسب منطقك
 }
 }

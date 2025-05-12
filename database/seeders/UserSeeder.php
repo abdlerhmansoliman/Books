@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,12 +15,19 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User:updateOrCreate([
-            'email'=>'admin@gmail.com',
-            'name' => 'Admin',
-            'password' => Hash::make('password'), // Use a strong password in production
-            'email_verified_at' => now(),
-            'role' =>'admin'       
-          ]);
+        $adminRole = Role::firstOrCreate(['role' => 'admin']);
+
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@example.com'], 
+            [
+                'name' => 'Super Admin',
+                'password' => Hash::make('12121212'),
+                'bio' => 'I am the administrator of the system.', 
+                'gender' => 'male',
+            ]
+        );
+        if (! $admin->roles->contains($adminRole->id)) {
+            $admin->roles()->attach($adminRole->id);
+        }
     }
 }

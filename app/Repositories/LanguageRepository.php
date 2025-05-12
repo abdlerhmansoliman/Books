@@ -47,7 +47,6 @@ class LanguageRepository implements LanguageInterface
         );
         
         Cookie::queue($cookie);
-        \Log::info("Cookie '{$this->cookieName}' set with value: {$locale}");
     }
     
     public function getLocaleFormCookie()
